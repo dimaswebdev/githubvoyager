@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GitHub Voyager</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <script src="https://kit.fontawesome.com/19bb091880.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="links-footer">
+            <a href="#">Sobre</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Privacidade</a>
+        </div>
+        <div class="icone-usuario">Usuário</div>
+    </header>
+
+    <main class="container-principal">
+        <!-- Parte esquerda com a pesquisa e botões -->
+        <div class="container-pesquisa">
+            <div class="pesquisa-principal">
+                <div class="logo-githubvoyager">
+                    <img src="./assets/img/gitHub-voyger-logo-01.png" alt="logo-githubvoyger">
+                </div>
+                
+                <div class="barra-pesquisa">
+                    <input type="text" id="input-pesquisa" placeholder="Digite sua pesquisa">
+                    <button id="botao-pesquisa" class="icon-btn" aria-label="Página inicial">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                    <button id="botao-limpar" class="icon-btn" aria-label="Limpar">
+                        <i class="fa-solid fa-broom"></i>
+                    </button>                   
+                    <!-- Dropdown ao lado direito do botão de configurações -->
+                    <div class="dropdown">
+                        <button class="dropbtn icon-btn" aria-label="Abrir filtros">
+                            <i class="fa-solid fa-filter"></i>
+                        </button>
+                        <div class="dropdown-content" id="filtro-menu">
+                            <a href="#" id="buscar-repositorios">Buscar Repositórios</a>
+                            <a href="#" id="buscar-desenvolvedores">Buscar Desenvolvedores</a>
+                            <a href="#" id="explorar-trending">Explorar Trending</a>
+                        </div>
+                    </div>
+                </div>
+
+                <h1>Explore o universo GitHub</h1>
+                <p>Encontre os melhores repositórios, desenvolvedores e projetos open source</p>
+            </div>
+        </div>
+
+        <!-- Parte direita com os resultados -->
+        <div class="resultados" id="container-resultados">
+            <!-- Resultados da pesquisa aparecerão aqui -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="direitos-autorais">
+            © GitHub Voyager : Desenvolvido por DimasDesigner - ImersãoDev Alura/ Google Gemini - 2024
+        </div>
+    </footer>
+
+    <!-- Script principal -->
+    <script type="module" src="./assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    color: #202124;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+}
+
+header {
+    position: fixed; /* Adiciona posição fixa */
+    top: 0;
+    width: 100%; /* Garante que ocupe toda a largura da página */
+    z-index: 1000; /* Coloca o header acima de outros elementos */
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 40px;
+    background-color: #f8f9fa;
+}
+
+
+footer {
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    bottom: 0;
+    text-align: center;
+    padding: 20px 40px;
+}
+
+.links-footer {
+    position: absolute;
+    left: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.links-footer a {
+    color: #9AA0A6;
+    text-decoration: none;
+}
+
+.icone-usuario {
+    background-color: #4285F4;
+    color: white;
+    border-radius: 50%;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 150px; /* Espaço para o header */
+    padding-bottom: 80px; /* Espaço para o footer */
+    flex-grow: 1;
+}
+
+.pesquisa-principal {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 20%;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    transition: transform 0.5s ease; /* Animação para deslocar */
+}
+
+.pesquisa-principal.mover-esquerda {
+    transform: translateX(-30%);
+}
+
+.container-pesquisa {
+    width: 100%;
+    text-align: center;
+}
+
+.container-pesquisa h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #4285F4;
+}
+
+.container-pesquisa p {
+    font-size: 1.2rem;
+    color: #5f6368;
+    margin-bottom: 40px;
+}
+
+.logo-githubvoyager img {
+    display: flex;
+    width: 400px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.barra-pesquisa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 800px; /* Diminui a largura da barra de pesquisa */
+    gap: 10px; /* Espaçamento entre a barra e os botões */
+    margin-bottom:200px ;
+    margin-top: 20px;
+}
+
+.barra-pesquisa input {
+    width: 60%; /* Ajusta a largura da barra de pesquisa */
+    padding: 10px 40px;
+    font-size: 1.2rem;
+    border: 1px solid #dadce0;
+    border-radius: 24px;
+    outline: none;
+}
+
+.icon-btn, .dropbtn {
+    display: inline;
+    border-radius: 50%;
+    width: 43px;
+    height: 43px;
+    background-color: #4285F4;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.icon-btn:hover, .dropbtn:hover {
+    background-color: #D2E3FC;
+}
+
+.footer-buttons {
+    display: flex;
+    gap: 10px;
+    position: relative;
+    margin-top: 40px;
+    margin-bottom: 160px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    top: -155%;
+    left: 90%; /* Ponto inicial fora da área visível */
+    opacity: 0;
+    transition: left 0.5s ease, opacity 0.5s ease; /* Suave animação de entrada */
+    animation: slideIn 0.6s ease-in-out;
+}
+
+.dropdown-content.show {
+    display: flex;
+    left: 105%; /* Ponto final visível */
+    opacity: 1; /* Tornar visível */
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+#buscar-repositorios.active {
+    background-color: #FAD2CF;
+    color: black;
+}
+
+#buscar-desenvolvedores.active {
+    background-color: #FBBC04;
+    color: black;
+}
+
+#explorar-trending.active {
+    background-color: #CEEAD6;
+    color: black;
+}
+
+.resultados {
+    display: none;
+    width: 45%;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    position: absolute;
+    right: 125px;
+    top: 25%;
+    left: 45%;
+    margin-top: 20px;
+    margin-left: 120px;
+    margin-right: 120px;
+    
+}
+
+.resultados.mostrar {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+}
+#container-resultados{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    top: 5%;
+    right: 5%;
+}
+
+.resultado-item {
+    padding: 20px 0;
+    border-bottom: 1px solid #dadce0;
+    text-align: left;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Animação opcional se quiser uma entrada mais gradual */
+@keyframes slideIn {
+    0% {
+        left: 90%;
+        opacity: 0;
+    }
+    100% {
+        left: 105%;
+        opacity: 1;
+    }
+}
