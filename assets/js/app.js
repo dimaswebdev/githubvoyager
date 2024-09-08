@@ -18,12 +18,33 @@ document.getElementById('explorar-trending').addEventListener('click', function(
 
 // Função para limpar a pesquisa
 document.getElementById('botao-limpar').addEventListener('click', function() {
+    // Limpa o campo de entrada de pesquisa
     document.getElementById('input-pesquisa').value = '';
+    
+    // Limpa os resultados exibidos
     document.getElementById('container-resultados').innerHTML = '';
+    
+    // Remove qualquer animação ou classe adicionada durante a pesquisa
     removeBotoesAtivos();
-    filtroPesquisa = 'repositorios'; // Reset para o filtro padrão
+    
+    // Reseta o filtro de pesquisa para 'repositorios'
+    filtroPesquisa = 'repositorios';
+    
+    // Remove animação de mover a pesquisa para a esquerda
     document.querySelector('.pesquisa-principal').classList.remove('mover-esquerda');
     document.querySelector('.resultados').classList.remove('mostrar');
+    
+    // Fecha o menu suspenso, se estiver aberto
+    document.getElementById('filtro-menu').classList.remove('show');
+    
+    // Remove o destaque de botões ativos no menu suspenso
+    document.querySelectorAll('.dropdown-content a').forEach(botao => {
+        botao.classList.remove('active');
+    });
+
+    // Define o botão "Buscar Repositórios" como ativo por padrão
+    document.getElementById('buscar-repositorios').classList.add('active'); 
+    document.querySelector('.resultados').innerHTML = ''; // Limpa qualquer resultado existente
 });
 
 // Função para realizar a busca
