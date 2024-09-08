@@ -1,5 +1,3 @@
-import { dadosSimulados } from './dados.js';
-
 let filtroPesquisa = 'repositorios';
 
 // Funções para mudar o filtro com base no botão clicado
@@ -26,22 +24,11 @@ document.getElementById('botao-limpar').addEventListener('click', function() {
     filtroPesquisa = 'repositorios'; // Reset para o filtro padrão
     document.querySelector('.pesquisa-principal').classList.remove('mover-esquerda');
     document.querySelector('.resultados').classList.remove('mostrar');
-    
-    // Voltar ao estado inicial
-    document.getElementById('filtro-menu').classList.remove('show'); // Fecha o menu suspenso, se aberto
-    document.querySelectorAll('.dropdown-content a').forEach(botao => {
-        botao.classList.remove('active'); // Remove o destaque dos botões
-    });
-
-    // Define o botão "Repositórios" como ativo por padrão
-    document.getElementById('buscar-repositorios').classList.add('active'); 
-    document.querySelector('.resultados').innerHTML = ''; // Limpa qualquer resultado existente
 });
 
 // Função para realizar a busca
 document.getElementById('botao-pesquisa').addEventListener('click', realizarPesquisa);
 
-// Função para acionar a pesquisa com o botão Enter
 document.getElementById('input-pesquisa').addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
         realizarPesquisa();
@@ -49,26 +36,41 @@ document.getElementById('input-pesquisa').addEventListener('keydown', function(e
 });
 
 function realizarPesquisa() {
-    const query = document.getElementById('input-pesquisa').value.toLowerCase();
+    const query = document.getElementById('input-pesquisa').value;
 
     if (query || filtroPesquisa === 'trending') {
-        // Adiciona a animação para mover a pesquisa para a esquerda
         document.querySelector('.pesquisa-principal').classList.add('mover-esquerda');
         document.querySelector('.resultados').classList.add('mostrar');
 
         if (filtroPesquisa === 'repositorios') {
-            const resultadosRepositorios = dadosSimulados.repositorios.filter(repo =>
-                repo.name.toLowerCase().includes(query) || repo.description.toLowerCase().includes(query)
-            );
-            exibirRepositorios(resultadosRepositorios);
+            buscarRepositorios(query);
         } else if (filtroPesquisa === 'desenvolvedores') {
-            const resultadosDesenvolvedores = dadosSimulados.desenvolvedores.filter(dev =>
-                dev.login.toLowerCase().includes(query)
-            );
-            exibirDesenvolvedores(resultadosDesenvolvedores);
+            buscarDesenvolvedores(query);
         } else if (filtroPesquisa === 'trending') {
-            exibirRepositorios(dadosSimulados.repositorios); // Simulação simples de "trending"
+            buscarTrending();
         }
+    }
+}
+
+// Função para buscar repositórios no GitHub
+async function buscarRepositorios(query) {
+    try {
+        const response = await fetch(`https://api.github.com/search/repositories?q=${query}`);
+        const data = await response.json();
+        exibirRepositorios(data.items);
+    } catch (error) {
+        console.error('Erro ao buscar repositórios:', error);
+    }
+}
+
+// Função para buscar desenvolvedores no GitHub
+async function buscarDesenvolvedores(query) {
+    try {
+        const response = await fetch(`https://api.github.com/search/users?q=${query}`);
+        const data = await response.json();
+        exibirDesenvolvedores(data.items);
+    } catch (error) {
+        console.error('Erro ao buscar desenvolvedores:', error);
     }
 }
 
@@ -117,6 +119,17 @@ function removeBotoesAtivos() {
     document.querySelectorAll('.dropdown-content a.active').forEach(botao => {
         botao.classList.remove('active');
     });
+}
+
+// Função para buscar os repositórios em "trending"
+async function buscarTrending() {
+    try {
+        const response = await fetch('https://api.github.com/search/repositories?q=stars:>1000&sort=stars');
+        const data = await response.json();
+        exibirRepositorios(data.items);
+    } catch (error) {
+        console.error('Erro ao buscar trending:', error);
+    }
 }
 
 // Função para exibir/esconder o menu suspenso
