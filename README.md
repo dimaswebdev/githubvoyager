@@ -62,7 +62,7 @@ Este projeto está licenciado sob a [MIT License](LICENSE). Sinta-se à vontade 
 
 ## Contato ✉️
 
-Para dúvidas ou sugestões, você pode entrar em contato pelo e-mail: **contact@githubvoyager.com**. 
+Para dúvidas ou sugestões, você pode entrar em contato pelo e-mail: **dimaswebdev@gmail.com**. 
 
 Divirta-se explorando e boa sorte na sua jornada pelo universo GitHub! 🌌🚀
 
