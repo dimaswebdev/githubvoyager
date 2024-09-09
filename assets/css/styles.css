@@ -6,14 +6,17 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f8f9fa;
     color: #202124;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     overflow-x: hidden;
-
+    background: linear-gradient(135deg, #d1e3ff 0%, #f1e0ff 50%, #e3f2fd 100%);
+    background-attachment: fixed; /* Fixa o background */
+    background-size: cover; /* Garante que cubra toda a área de visualização */
+    background-repeat: no-repeat; /* Evita que o fundo seja repetido */
 }
+
 
 header {
     position: fixed; /* Adiciona posição fixa */
@@ -23,8 +26,9 @@ header {
     display: flex;
     justify-content: flex-end;
     padding: 20px 40px;
-    background-color: #f8f9fa;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0), rgba(248, 249, 250, 0.8)); /* Gradiente com transparência */
 }
+
 
 
 footer {
@@ -176,7 +180,7 @@ main {
     display: none;
     position: absolute;
     flex-direction: column;
-    background-color: #f9f9f9;
+    background-color: rgba(249, 249, 249, 0.5); /* Fundo transparente */
     min-width: 160px;
     box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
     z-index: 1;
@@ -198,26 +202,33 @@ main {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    border-bottom: 1px solid #dadce0; /* Linha divisória entre os itens */
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none; /* Remove a linha do último item */
 }
 
 .dropdown-content a:hover {
     background-color: #f1f1f1;
 }
 
+
+
 #buscar-repositorios.active {
-    background-color: #FAD2CF;
-    color: black;
+ background-color: #4285F4; /* Fundo azul quando clicado */
+ color: white; /* Cor da fonte branca quando clicado*/
 }
 
 #buscar-desenvolvedores.active {
-    background-color: #FBBC04;
-    color: black;
+    background-color: #4285F4; /* Fundo azul quando clicado */
+    color: white; /*Cor da fonte branca quando clicado*/
 }
 
 #explorar-trending.active {
-    background-color: #CEEAD6;
-    color: black;
-}
+    background-color: #4285F4; /* Fundo azul quando clicado */
+    color: white; /* Cor da fonte branca quando clicado */
+} 
 
 .resultados {
     display: none;
@@ -228,12 +239,20 @@ main {
     position: absolute;
     right: 125px;
     top: 25%;
-    left: 45%;
+    left: 40%;
     margin-top: 20px;
     margin-left: 120px;
     margin-right: 120px;
     
 }
+.titulo h1{
+    display: flex;
+    position: absolute;
+    left: 10%;
+    color: #4285F4;
+
+}
+
 
 .resultados.mostrar {
     display: block;
@@ -249,8 +268,8 @@ main {
 }
 
 .resultado-item {
-    padding: 20px 0;
-    border-bottom: 1px solid #dadce0;
+    padding: 20px 50px;
+    border-bottom: 1px solid white;
     text-align: left;
     animation: fadeIn 0.3s ease-in-out;
 }
@@ -276,3 +295,269 @@ main {
         opacity: 1;
     }
 }
+ul.links-header {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+    margin-right: 50px;
+}
+
+ul.links-header li a {
+    color: #9AA0A6;
+    text-decoration: none;
+    /* font-weight: 500; */
+}
+
+ul.links-header li a:hover {
+    text-decoration: underline;
+    color: #4285F4;
+}
+
+
+/* Reseta e estilos básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    color: #202124;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+
+
+
+ul.links-header {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin-right: 50px;
+}
+
+ul.links-header li a {
+    color: #9AA0A6;
+    text-decoration: none;
+    /* font-weight: 500; */
+}
+
+ul.links-header li a:hover {
+    text-decoration: underline;
+    color: #4285F4;
+}
+
+/* Estilo do footer */
+footer {
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+    padding: 20px 40px;
+    margin-top: auto;
+}
+
+.direitos-autorais {
+    color: #9AA0A6;
+}
+
+/* Estilos para o main */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 150px 20px 80px;
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* Estilos para a página de formulários */
+form {
+    background-color: white;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    padding: 40px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    font-size: 1rem;
+    color: #4285F4;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+}
+form input:focus {
+    border-color: #4285F4;
+    outline: none;
+}
+
+form button {
+    background-color: #4285F4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 12px;
+    width: 100%;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #3367D6;
+}
+
+/* Estilos para a página Sobre */
+.sobre-projeto {
+    display: flex;
+    position: absolute; /* Define a posição absoluta */
+    top: 9.5%; /* Define a distância de 10% do topo da janela */
+    justify-content: center;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    color: #202124;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 0;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+.sobre-projeto h2 {
+    color: #4285F4;
+    margin-bottom: 20px;
+}
+
+.sobre-projeto p,
+.sobre-projeto ul {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.sobre-projeto ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.sobre-projeto li {
+    margin-bottom: 10px;
+}
+
+/* Estilo do texto adicional */
+.sobre-projeto h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.sobre-projeto p,
+.sobre-projeto ul {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #5f6368;
+}
+
+.sobre-projeto ul {
+    margin-bottom: 20px;
+}
+
+.sobre-projeto h3 {
+    font-size: 1.5rem;
+    color: #4285F4;
+    margin-bottom: 10px;
+}
+
+/* Estilo para o novo texto adicional */
+.texto-apresentacao {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.texto-apresentacao h1 {
+    font-size: 2.5rem;
+    color: #4285F4;
+    margin-bottom: 20px;
+}
+
+.texto-apresentacao p {
+    font-size: 1.2rem;
+    color: #5f6368;
+    line-height: 1.6;
+}
+
+.texto-apresentacao ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.texto-apresentacao ul li {
+    margin-bottom: 10px;
+}
+
+.texto-apresentacao a {
+    color: #4285F4;
+    text-decoration: none;
+}
+
+.texto-apresentacao a:hover {
+    text-decoration: underline;
+}
+
+.planet{
+    display: flex;
+    position: fixed;
+    top: 6%;
+    right: 2%;
+    width: 280px;
+    height: 280px;
+    z-index: 1000;
+   
+ 
+}
+
+.rocket img{
+    display: flex;
+    position: absolute;
+    /* background-color: #202124; */
+    top: 3%;
+    right: 34%;
+    width: 150px;
+    height: 150px;
+    z-index: 1000;  
+}
+
+.stars img {
+    display: flex;
+    position: fixed;
+    /* background-color: #202124; */
+    top: 75%;
+    left: 5%;
+    width: 200px;
+    height: 200px;
+    z-index: 1000; 
+}
+

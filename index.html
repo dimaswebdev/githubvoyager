@@ -9,36 +9,50 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/styles.css">
     <script src="https://kit.fontawesome.com/19bb091880.js" crossorigin="anonymous"></script>
-    
 </head>
 <body>
     <header>
-        <div class="links-header">
-            <a href="#">Cadastre-se</a>
-            <a href="#">Sobre</a>
-            <a href="#">Login </a>
-        </div>
-        <div class="icone-usuario">
-            <img class="perfil-fotos" src="./assets/img/dimas-vivi.png" alt="foto-dimas-vivi">
-        </div>
+        <nav>
+            <ul class="links-header">
+                <li><a href="index.html">Home</a></li> <!-- Link para a página inicial -->
+                <li><a href="cadastre-se.html">Cadastre-se</a></li> <!-- Link para a página de cadastro -->
+                <li><a href="sobre.html">Sobre</a></li> <!-- Link para a página sobre -->
+                <li><a href="login.html">Login</a></li> <!-- Link para a página de login -->
+            </ul>
+            <div class="icone-usuario">
+                <img class="perfil-fotos" src="./assets/img/dimas-vivi.png" alt="foto-dimas-vivi">
+            </div>
+        </nav>
     </header>
+
+ 
 
     <main class="container-principal">
         <!-- Parte esquerda com a pesquisa e botões -->
+        <div class="planet">
+            <img src="./assets/img/rocket-01.png" alt="planet">
+        </div>
+        
+        <div class="stars">
+            <img src="./assets/img/rocket-02.png" alt="rocket">
+        </div>
+        
+
         <div class="container-pesquisa">
             <div class="pesquisa-principal">
+
                 <div class="logo-githubvoyager">
-                    <img src="./assets/img/gitHub-voyger-logo-01.png" alt="logo-githubvoyger">
+                    <img src="./assets/img/gitHub-voyger-logo-01.png" alt="logo-githubvoyager">
                 </div>
                 
                 <div class="barra-pesquisa">
                     <input type="text" id="input-pesquisa" placeholder="Digite sua pesquisa">
-                    <button id="botao-pesquisa" class="icon-btn" aria-label="Página inicial">
+                    <button id="botao-pesquisa" class="icon-btn" aria-label="Pesquisar">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                     <button id="botao-limpar" class="icon-btn" aria-label="Limpar">
                         <i class="fa-solid fa-broom"></i>
-                    </button>                   
+                    </button>
                     <!-- Dropdown ao lado direito do botão de configurações -->
                     <div class="dropdown">
                         <button class="dropbtn icon-btn" aria-label="Abrir filtros">
@@ -65,7 +79,7 @@
 
     <footer>
         <div class="direitos-autorais">
-            © GitHub Voyager : Desenvolvido por DimasDesigner - ImersãoDev Alura/ Google Gemini - 2024
+            <p>© GitHub Voyager - Desenvolvido por DimasDesigner</p>
         </div>
     </footer>
 
